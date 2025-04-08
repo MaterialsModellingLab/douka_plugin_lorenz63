@@ -1,0 +1,56 @@
+{
+  "version": 7,
+  "configurePresets": [
+    {
+      "name": "default",
+      "displayName": "Default",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-Werror -Wall -Wextra -Wpedantic"
+      }
+    },
+    {
+      "name": "debug",
+      "inherits": "default",
+      "displayName": "Debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "rel-debug",
+      "displayName": "Release Build with Debug Symbol",
+      "inherits": "default",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    },
+    {
+      "name": "release",
+      "displayName": "Release",
+      "inherits": "default",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "a64fx-default",
+      "displayName": "A64FX Default Build",
+      "inherits": "default",
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "FCCpx",
+        "CMAKE_CXX_FLAGS": "-Nclang"
+      }
+    },
+    {
+      "name": "a64fx-release",
+      "displayName": "A64FX Release Build",
+      "inherits": "a64fx-default",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS_RELEASE": "-Ofast"
+      }
+    }
+  ]
+}
