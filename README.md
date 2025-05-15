@@ -38,7 +38,7 @@ cmake --build build/release
 cmake --install build/release
 ```
 
-### F64AX platform
+### A64FX platform
 ```bash
 cmake --preset a64fx-release
 cmake --build build/a64fx-release
